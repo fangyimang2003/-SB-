@@ -1,0 +1,24 @@
+我要写一个3分钟后你妈死亡：
+
+{$VERSION 2.2.0000}
+{$CLEO .cs}
+
+//-------------MAIN---------------
+thread 'SB3' 
+
+:SB3_10
+wait 500 
+if 
+   Player.Defined($PLAYER_CHAR)
+jf @SB3_10 
+$SBBB = 180000 // integer values    
+03C3: set_timer_with_text_to $SBBB type 1 text 'XBXY'  
+
+:SB3_56
+wait 0 
+if 
+  $SBBB == 0 // integer values     
+jf @SB3_56 
+0322: kill_player $PLAYER_CHAR  
+wait 2000 
+jump @SB3_10 
